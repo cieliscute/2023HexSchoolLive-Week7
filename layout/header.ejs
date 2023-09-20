@@ -1,0 +1,70 @@
+<!-- header一定要在body最前面就引入，使用fix-top定位在畫面最上方，並且對body下一個padding-top去製造出header在一開始最上方的空間（in _header.scss） -->
+<header class="border-bottom border-3 border-primary fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light py-3">
+    <div class="container-md justify-content-start flex-nowrap">
+      <!-- brand icon+標題 -->
+      <a class="navbar-brand d-flex align-items-center py-0 me-lg-5 me-4" href="./index.html">
+        <div class="brand-img border border-2 border-primary bg-secondary  d-flex align-items-center justify-content-center me-sm-3 me-0">
+          <img src="../assets/images/sparkler.png" alt="7TAO LOGO" class="d-inline-block align-top img-fluid">
+        </div>
+        <div class="align-items-center d-none d-sm-flex">
+          <h1 class="fs-2 m-0">7TAO</h1>
+          <span class="ms-1 fs-6 fw-bold">活動訂票網</span>
+        </div>
+      </a>
+      <!-- form探索活動 -->
+      <form class="d-flex align-self-stretch flex-shrink-1 me-4">
+        <input class="form-control border border-2 border-primary border-end-0 flex-grow-1 flex-shrink-1" type="search" placeholder="探索活動"
+          aria-label="Search">
+        <a class="btn border border-2  border-primary  flex-shrink-0 justify-content-center align-items-center d-flex"
+          type="submit">
+          <i class="icofont-search-1 fs-6"></i>
+        </a>
+      </form>
+
+
+      <!-- 登入/註冊 ＋漢堡條 -->
+      <button class="navbar-toggler ms-auto align-self-stretch px-12 py-1 border-2 border-primary rounded rounded-2"
+        type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon h-100"></span>
+      </button>
+      <!-- 因為collapse的部分分開了，所以需要多複製一份按鈕。把ID給拿掉就不會連動了-->
+      <div class="collapse navbar-collapse flex-grow-0 ms-auto collapse--showAboveLg">
+        <ul class="navbar-nav mb-0">
+          <li class="nav-item me-4 d-flex align-items-center">
+            <a class="nav-link p-0 py-3 fs-18 lh-sm d-flex align-items-center" aria-current="page" href="#">
+              <i class="icofont-ui-file me-1"></i>
+              REGISTER
+            </a>
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <a class="nav-link p-0 py-3 fs-18 lh-sm d-flex align-items-center" aria-current="page" href="./login.html">
+              <i class="icofont-ui-user me-1"></i>
+              LOGIN
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- 為了製造navbar的固定下底線，所以需要將collapse的部分分開 -->
+  <div class="container-md">
+    <div class="collapse navbar-collapse collapse--showBelowLg" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-0 py-4">
+          <li class="nav-item me-lg-4 d-flex align-items-center mb-3">
+            <a class="nav-link p-0  fs-18 lh-sm d-flex align-items-center" aria-current="page" href="#">
+              <i class="icofont-ui-file me-1"></i>
+              REGISTER
+            </a>
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <a class="nav-link p-0 fs-18 lh-sm d-flex align-items-center" aria-current="page" href="./login.html">
+              <i class="icofont-ui-user me-1"></i>
+              LOGIN
+            </a>
+          </li>
+        </ul>
+    </div>
+  </div>
+</header>

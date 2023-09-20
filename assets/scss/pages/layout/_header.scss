@@ -1,0 +1,86 @@
+// header因為下了fix-top,所以body需要將上方的header區塊空出來，避免蓋到下方的頁面
+// 有考慮過其他的方式去推擠出這個距離，最後覺得還是body比較單純一點
+// 但是不知道這樣是不是一個好的辦法，助教如果對這部分有什麼看法也可以跟我說～～
+body{
+  padding-top: 72px;
+  @include md{
+    padding-top: 87px;
+  }
+}
+
+
+// header icon大小
+.brand-img{
+  width: 40px;
+  height: 40px;
+  @include md{
+    width: 55px;
+    height: 55px;
+  }
+  img{
+    width: 25px;
+    height: 25px;
+    @include md{
+      width: 35px;
+      height: 35px;
+    }
+  }
+}
+.collapse--showAboveLg{
+  .nav-link{
+    color:$primary;
+    &:hover{
+      color: #9C9E18;
+    }
+  }
+}
+
+
+
+header {
+  // for fixed-top
+  background-color: #EAE9E2;
+  nav{
+    // 為了調整出固定的nav下方黑色線條,在下方collapse(<992才會出現)沒有出現的時候，header的border-bottom 3px會跟nav的outline重疊
+    outline: 3px solid $primary;
+  }
+  form {
+    // 如果要調整input裏面placeholder的css需要使用::placeholder
+    .form-control::placeholder{
+      // 裝置320px的時候字體會被蓋掉一些，調小2px
+      font-size: 14px;
+      @include sm{
+        // 恢復原本尺寸
+        font-size: 16px;
+      }
+    }
+    [type="submit"] {
+      background-color: $primary;
+      color: $secondary;
+      width: 40px;
+      height: 40px;
+      &:hover {
+        background-color: $secondary;
+        color: $primary;
+      }
+    }
+    @include md{
+      .btn{
+        width: 55px;
+        height: 55px;
+      }
+    }
+  }
+
+  // 如果不需要點擊的外匡線效果可以取消
+  // .navbar-toggler:focus{
+  //   box-shadow: unset;
+  // }
+
+  // 同上，這邊取消是因為如果只有輸入匡有外誆線,送出按鈕沒有，感覺有點奇怪...
+  .form-control:focus{
+    box-shadow: unset;
+  }
+}
+
+

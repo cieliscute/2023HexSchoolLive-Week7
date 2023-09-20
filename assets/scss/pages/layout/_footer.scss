@@ -1,0 +1,9 @@
+footer{
+  outline: 3px solid $primary;
+  p{
+    font-size: 14px;
+    @include md{
+      font-size: 16px;
+    }
+  }
+}

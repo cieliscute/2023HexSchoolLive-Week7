@@ -1,0 +1,34 @@
+.login {
+  // 高度是用100vh去扣掉header上面固定的高度（在body上面下的padding-top (refer _header.scss),再扣掉footer的高度
+  min-height: calc(100vh - 141px);
+
+  @include md {
+    min-height: calc(100vh - 175px);
+  }
+
+  form {
+    input {
+      border-color: $primary;
+      border-width: 2px;
+    }
+
+    [type='submit'] {
+      font-size: 20px;
+    }
+
+    input::placeholder {
+      font-size: 20px;
+      font-family: 'Noto Sans TC';
+      color: #878787;
+    }
+
+    label {
+      font-size: 16px;
+      font-family: 'Noto Sans TC';
+    }
+  }
+
+  .btn-primary:hover {
+    color: $secondary;
+  }
+}

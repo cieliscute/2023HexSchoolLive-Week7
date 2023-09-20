@@ -1,0 +1,147 @@
+.event-9 {
+
+  // 只要有使用bootstrap的border class,就可以利用更改--bs-border-width去更改該class對應元素的寬度，所以在.event-9這個頁面中的最外層設定，只要有.border這個class,會響應式調整他自己的--bs-border-width。
+  .border {
+    --bs-border-width: 2px;
+
+    @include sm {
+      --bs-border-width: 3px;
+    }
+  }
+
+  .banner__date__YYYY {
+    font-size: 24px;
+
+    @include lg {
+      font-size: 48px;
+    }
+  }
+
+  .banner__date__MMDDhhmm {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 50px;
+      height: 2px;
+      background-color: #000;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(120deg);
+
+      @include sm {
+        width: 35px;
+      }
+    }
+  }
+
+  .banner__date__MMDD {
+    font-size: 22px;
+
+    @include sm {
+      font-size: 16px;
+    }
+
+    @include md {
+      font-size: 22px;
+    }
+
+    @include lg {
+      font-size: 32px;
+    }
+
+    @include xl {
+      font-size: 48px;
+    }
+  }
+
+  .banner__date__hhmm {
+    font-size: 16px;
+
+    @include sm {
+      font-size: 12px;
+    }
+
+    @include md {
+      font-size: 16px;
+    }
+
+    @include lg {
+      font-size: 24px;
+    }
+
+    @include xl {
+      font-size: 32px;
+    }
+  }
+
+
+
+
+  .event__content {
+    h2 {
+      font-style: 32px;
+
+      @include md {
+        font-size: 48px;
+      }
+
+      @include lg {
+        font-size: 60px;
+      }
+    }
+  }
+
+
+
+  table {
+    thead {
+      border-bottom: 2px solid $primary;
+    }
+    tbody {
+      tr {
+        border-bottom: 1px solid $primary;
+      }
+      td {
+        font-size: 14px;
+
+        @include sm {
+          font-size: 16px;
+        }
+        // 為了不要讓 “購買” 按鈕會被強制換行，在每個td的最後一個元素（也就是購買整列）都限制一個最小寬度
+        &:last-child {
+          min-width: 62px;
+        }
+
+        .btn {
+          // 按鈕的font-size是吃到var的，所以要另外再設定
+          font-size: 14px;
+          transition: color .3s ease-in-out, background-color .3s ease-in-out;
+          color: $primary;
+          font-weight: bold;
+          border: 1px solid $primary;
+
+          @include sm {
+            font-size: 16px;
+            border-width: 2px;
+          }
+
+          &:hover {
+            color: $secondary;
+            background-color: $primary;
+          }
+        }
+      }
+    }
+    tr {
+      // 讓左右不需要有padding
+      :first-child {
+        padding-left: 0px;
+      }
+      :last-child {
+        padding-right: 0px;
+      }
+    }
+  }
+}

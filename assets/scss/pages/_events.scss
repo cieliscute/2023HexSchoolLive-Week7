@@ -1,0 +1,126 @@
+.events {
+  .events__cards {
+    .row{
+      row-gap: 24px;
+      @include md{
+        row-gap: 48px;
+      }
+    }
+    .pagination-list{
+      // for iPhone SE 320px
+      gap:0px 4px;
+      @include respond-to('min-width:375px'){
+        gap:0px 8px;
+      }
+      .pagination-list__item{
+        &.active{
+          a{
+            background-color: $primary;
+            color:$secondary;
+          }
+        }
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border: 1px solid $primary;
+        a{
+          color:$primary;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all .3s ease-in-out;
+          &:hover{
+            background-color: $primary;
+            color:$secondary;
+          }
+        }
+      }
+    }
+    .card-header {
+      h3 {
+        font-size: 32px;
+
+        @include md {
+          font-size: 40px;
+        }
+
+        @include xl{
+          font-size: 48px;
+        }
+      }
+    }
+
+    .card-body {
+      img {
+        object-fit: contain;
+        max-width: unset;
+        width: 100%;
+      }
+
+      h4 {
+        font-style: 18px;
+
+        @include md {
+          font-size: 24px;
+        }
+      }
+    }
+
+    .card-footer__filterTag {
+      img {
+        width: 20px;
+        height: 20px;
+
+        @include lg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      // hover effect
+      p {
+        position: relative;
+      }
+
+      p::before {
+        position: absolute;
+        content: "";
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        // 線條粗細
+        height: 2px;
+        background-color: $primary;
+        transform: scaleX(0);
+        transform-origin: bottom center;
+        transition: .3s transform ease-in-out;
+      }
+
+      &:hover {
+        p::before {
+          transform: scaleX(1);
+        }
+      }
+    }
+
+    .card-footer__state {
+      position: relative;
+
+      .fa-solid {
+        line-height: 1.5;
+      }
+
+      &:hover::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        width: 30px;
+        height: 30px;
+        left: -15px;
+        background-color: $secondary;
+        border-radius: 50%;
+        transform: translate(2px, -3px);
+      }
+    }
+  }
+}

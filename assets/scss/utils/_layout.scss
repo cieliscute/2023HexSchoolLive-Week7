@@ -1,0 +1,209 @@
+.notoSerif {
+  font-family: 'Noto Serif TC';
+}
+
+.notoSans {
+  font-family: 'Noto Sans TC';
+}
+
+.Yeseva {
+  font-family: 'Yeseva One';
+}
+
+.l-object-cover {
+  object-fit: cover;
+}
+
+.l-object-contain {
+  object-fit: contain;
+}
+
+
+.l-gapY-8 {
+  gap: 8px 0px;
+}
+
+
+.l-label {
+  h2 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  @include lg {
+    h2 {
+      font-size: 64px;
+    }
+
+    p {
+      font-size: 32px;
+    }
+  }
+}
+
+.l-z-index-1{
+  z-index: 1;
+}
+.l-z-index-2{
+  z-index: 2;
+}
+.l-z-index-minus1{
+  z-index: -1;
+}
+.l-start-minus50{
+  left: -50%;
+}
+
+
+.l-bg-body{
+  background-color: #EAE9E2;
+}
+
+.l-square {
+  position: relative;
+}
+
+.l-square::before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+.l-square__content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+}
+
+.l-16-9 {
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    padding-top: percentage(9/16);
+  }
+
+  &__content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+  }
+}
+
+.l-mw-unset {
+  max-width: unset;
+}
+
+
+// 隨著btn-border顏色去調整顏色，可以搭配後綴數字調整寬度（eg,l-btn--modifier--5代表有px的寬度）
+.l-btn--modifier {
+  transition: background-color .3s ease-in-out, color .3s ease-in-out;
+  position: relative;
+
+  &::before {
+    transition: background-color .3s ease-in-out;
+    position: absolute;
+    content: "";
+    display: block;
+    // 這邊是for 1px border寬度的btn(沒有加上border-*的)，如果border有調整這邊要跟著調整（雖然好像可以用--bs-*變數去弄成自適應但是好麻煩喔之後再說..
+    height: calc(100% + 2px);
+    width: 4px;
+    left: -1px;
+    top: -1px;
+    background-color: var(--bs-btn-border-color);
+  }
+
+  &--1::before {
+    width: 1px;
+  }
+
+  &--2::before {
+    width: 2px;
+  }
+
+  &--3::before {
+    width: 3px;
+  }
+
+  &--4::before {
+    width: 4px;
+  }
+
+  &--5::before {
+    width: 5px;
+  }
+}
+
+.l-btn--modifier--hover:hover {
+  &::before {
+    background-color: $secondary;
+  }
+}
+
+// 首頁卡片使用的
+.l-card__tag--offsetPosition {
+  z-index: 1;
+  transform: translate(-50%, -50%) rotate(-4deg);
+}
+
+.l-scroll-container {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+
+  p {
+    font-weight: bold;
+    font-family: 'Noto Serif TC';
+    letter-spacing: 1.6px;
+    display: flex;
+    text-transform: uppercase;
+    // word-spacing: 3rem;
+    animation: scroll 40s linear infinite;
+    font-size: 16px;
+
+    @include md {
+      font-size: 32px;
+      letter-spacing: 3.2px;
+    }
+  }
+}
+
+.l-scroll-container--reverse {
+  p {
+    animation: scroll-reverse 40s linear infinite;
+  }
+}
+
+
+
+
+
+// keyframe
+@keyframes scroll {
+  from {
+    transform: translateX(-25%);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(-25%);
+  }
+}

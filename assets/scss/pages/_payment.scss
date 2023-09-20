@@ -1,0 +1,176 @@
+.payment {
+  .progress-container {
+    // 因為訂單確認、結帳付款、訂購結果沒有高度（position-absolute了）所以為了符合設計稿，progress conatiner的margin需要另外算
+    margin-bottom: 52px;
+
+    @include sm {
+      margin-bottom: 80px;
+    }
+  }
+
+
+  .progress-step {
+    .box {
+      width: 32px;
+      height: 32px;
+      color: $primary;
+      border: 1px solid $primary;
+
+      @include sm {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+    &.active .box {
+      background-color: $primary;
+      color: $secondary;
+    }
+
+    .box__text {
+      color: $primary;
+      white-space: nowrap;
+    }
+    .icofont-verification-check{
+      display: none;
+      font-size: 16px;
+      @include sm{
+        font-size: 20px;
+      }
+    }
+    &.done{
+      .box{
+      background-color: $primary;
+      color: $secondary;
+      }
+      .icofont-verification-check{
+        display: inline-block;
+      }
+      .box__stepNum{
+        display: none;
+      }
+    }
+  }
+
+  .progress-step::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    height: 1px;
+    // 向上調整一半自身尺寸
+    transform: translate(0px, -50%);
+    background-color: $primary;
+  }
+
+  .progress-step1::before {
+    left: 48px;
+    right: calc(50% + 16px);
+
+    @include sm {
+      left: 64px;
+      right: calc(50% + 24px);
+    }
+  }
+
+  .progress-step2::before {
+    left: calc(50% + 16px);
+    right: 48px;
+    @include sm {
+      left: calc(50% + 24px);
+      right: 64px;
+    }
+  }
+
+
+  // 轉換進度的時候線條的動畫用after去蓋掉原本的before,所以z-index設定成1
+  .progress-step::after {
+    transition: right 3s ease-out;
+    content: "";
+    position: absolute;
+    top: 50%;
+    height: 1px;
+    // 向上調整一半自身尺寸
+    transform: translate(0px, -50%);
+    background-color: $primary;
+    background-color:blue;
+  }
+
+  .progress-step2::after {
+    left: 48px;
+    right: calc(100% - 48px);
+
+    // right: calc(50% + 16px);
+    @include sm {
+      left: 64px;
+      right: calc(100% - 64px);
+      // right: calc(50% + 24px);
+    }
+  }
+  .progress-step2.active::after {
+    right: calc(50% + 16px);
+    @include sm {
+      right: calc(50% + 24px);
+    }
+  }
+
+  .progress-step3::after {
+    left: calc(50% + 16px);
+    right:calc(50% - 16px);
+
+    @include sm {
+      left: calc(50% + 24px);
+      right: calc(50% - 24px);
+    }
+  }
+  .progress-step3.active::after{
+    right: 48px;
+    @include sm {
+      right: 64px;
+    }
+  }
+
+
+  // h2 標題 e.g:返老還童-制服聯誼
+  .content-title {
+    font-size: 32px;
+  }
+
+  form {
+    input{
+      border-color: $primary;
+      border-width: 2px;
+    }
+    [type='submit'] {
+      font-size: 20px;
+    }
+
+    .cancel {
+      font-size: 18px;
+      color: #4F4F4F;
+    }
+
+    input::placeholder {
+      font-size: 20px;
+      font-family: 'Noto Sans TC';
+      color: #878787;
+    }
+
+    label {
+      font-size: 16px;
+      font-family: 'Noto Sans TC';
+    }
+    .form-text{
+      color: #4F4F4F;
+    }
+  }
+
+  .icofont-check-circled{
+    font-size: 30px;
+    @include sm{
+      font-size: 48px;
+    }
+  }
+  .description{
+    color:#4F4F4F;
+  }
+}
