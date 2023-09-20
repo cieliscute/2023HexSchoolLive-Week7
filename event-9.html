@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7TAO活動訂票網</title>
+  <script type="module" crossorigin src="/2023HexSchoolLive-Week7/assets/main-fc2e572e.js"></script>
+  <link rel="stylesheet" href="/2023HexSchoolLive-Week7/assets/main-a34af12e.css">
+</head>
+
+<body class="">
+  <!-- header -->
+  <!-- header一定要在body最前面就引入，使用fix-top定位在畫面最上方，並且對body下一個padding-top去製造出header在一開始最上方的空間（in _header.scss） -->
+<header class="border-bottom border-3 border-primary fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light py-3">
+    <div class="container-md justify-content-start flex-nowrap">
+      <!-- brand icon+標題 -->
+      <a class="navbar-brand d-flex align-items-center py-0 me-lg-5 me-4" href="./index.html">
+        <div class="brand-img border border-2 border-primary bg-secondary  d-flex align-items-center justify-content-center me-sm-3 me-0">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAACXBIWXMAAAsTAAALEwEAmpwYAAABZWlDQ1BEaXNwbGF5IFAzAAB4nHWQvUvDUBTFT6tS0DqIDh0cMolD1NIKdnFoKxRFMFQFq1OafgltfCQpUnETVyn4H1jBWXCwiFRwcXAQRAcR3Zw6KbhoeN6XVNoi3sfl/Ticc7lcwBtQGSv2AijplpFMxKS11Lrke4OHnlOqZrKooiwK/v276/PR9d5PiFlNu3YQ2U9cl84ul3aeAlN//V3Vn8maGv3f1EGNGRbgkYmVbYsJ3iUeMWgp4qrgvMvHgtMunzuelWSc+JZY0gpqhrhJLKc79HwHl4plrbWD2N6f1VeXxRzqUcxhEyYYilBRgQQF4X/8044/ji1yV2BQLo8CLMpESRETssTz0KFhEjJxCEHqkLhz634PrfvJbW3vFZhtcM4v2tpCAzidoZPV29p4BBgaAG7qTDVUR+qh9uZywPsJMJgChu8os2HmwiF3e38M6Hvh/GMM8B0CdpXzryPO7RqFn4Er/QfBIQM2AAAD60lEQVR4Ae2c/W3bMBDFzx8B8keAaoNyg7gbuJMkm7QbpBtlhKQTRJ4gSoAABvLh3nNJlaYpmbJl90nRDxAk25RkPt4dyaNskQF6MrtRMBYSptPp7OzszAgJNMKsViuju5mQMBUSRqORUXFoXIlGGBXlUneFkEAjjJLBaoQEJosxMrDNZDJZYRMSWHol4w7Oz8+NEEAhjI5hjDt+f3+n6JloxjGOj48PIwRQCOMH3vF4PFiMI+imB2FisIx+6VxJj78KASwW80XIYBGmdB+WaQFdjJE+Bt9MkT0IYkzja9j7tipoq8IURYFR7J1m4k6ScIIgOu758fz8fCtEKYsoKsxPTAZ1fyOJregmkHZ7TDlHrz/Xsg8451QNcSiZ+8LYp0wKA2FqZ9jWSm5cWRXol3QF25plRWHudeVThYHInuhr4YVoZSEJtKRfWetaMbKIMFuVhbvAzYJyRjpIFrQuLOcu4lomFCYso+9dhWUQy6TDmLCVI3GnVpgKUboTV6qwLrCqEadSmNi5GA5IX9AKXdeIExXGBtota5OOxpVKYuIg5uhHMauYh/Gpl6I4Yj1L4tZfUTxMxBoqNxtTjJyYkRwZjFSXy+XGuOTt7Q3r1Lcp56u7fVOBNuZBGn8KIEckSRgEQixr2Ax+hhkwktZets0tyK8F0JzKSZ910Xvn9r65fQuiFfp64T53n6kF5tpQ+a5rroVBq768vBit+EwvcIlK6oaJGdV6cpt4YkHA3+71xcXFPaxxnXaAVXp5kCf5KwhOkL6CulnLhnU5Sy89NNmVEBdwjKSSsyLrSr7bmGB/Cgq7rSum3wnHuX29UC9AA6/LqPvniFfJrnRkMhV2I97YeJU0gtVKfUdc8N/TipVi9AZYH7rgJmMYloX+oxHJp6Ruj13J0jWmQhSMaOehEBAB04WIQFfSJypEQW7XSPXsusq6+iNOLKbIv0dX6/IxUXF64VZ+4tqr2LVXZFcGL2ptnQ7ISILvEAXsTG2iTCTmdC8RDmxcCWNKzAWSkuGgQYKdE8y9JtvLHKaqfESYStyCnifOXLpCZEGs1uSbCGPx4043XMpLYD+ktuZke70ohcy5VieWUhAk7RdNbkU9J3S7Jsxslo/aavZKUB0ojH/v1mj7twT7znjL87ws3N7XaAOWx1npUggsj5ot3IEmmp6EAMZn8JIeHDo2LK6Ue8cLIWCIMRVQCIOEtTs+oFdqFZYYUwrjFs/+NxTCYFlDyKAQ5vX1tbSYcKnk09NwAnl0mH5enDMtCTP9IL1g6rZpRr72iQOK6QBg+tOLcjGeAaYYc6/dtrAwERK0m4Y4Sx0F5zKwwUkfTxvYkz+/TyEL+6WthwAAAABJRU5ErkJggg==" alt="7TAO LOGO" class="d-inline-block align-top img-fluid">
+        </div>
+        <div class="align-items-center d-none d-sm-flex">
+          <h1 class="fs-2 m-0">7TAO</h1>
+          <span class="ms-1 fs-6 fw-bold">活動訂票網</span>
+        </div>
+      </a>
+      <!-- form探索活動 -->
+      <form class="d-flex align-self-stretch flex-shrink-1 me-4">
+        <input class="form-control border border-2 border-primary border-end-0 flex-grow-1 flex-shrink-1" type="search" placeholder="探索活動"
+          aria-label="Search">
+        <a class="btn border border-2  border-primary  flex-shrink-0 justify-content-center align-items-center d-flex"
+          type="submit">
+          <i class="icofont-search-1 fs-6"></i>
+        </a>
+      </form>
+
+
+      <!-- 登入/註冊 ＋漢堡條 -->
+      <button class="navbar-toggler ms-auto align-self-stretch px-12 py-1 border-2 border-primary rounded rounded-2"
+        type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon h-100"></span>
+      </button>
+      <!-- 因為collapse的部分分開了，所以需要多複製一份按鈕。把ID給拿掉就不會連動了-->
+      <div class="collapse navbar-collapse flex-grow-0 ms-auto collapse--showAboveLg">
+        <ul class="navbar-nav mb-0">
+          <li class="nav-item me-4 d-flex align-items-center">
+            <a class="nav-link p-0 py-3 fs-18 lh-sm d-flex align-items-center" aria-current="page" href="#">
+              <i class="icofont-ui-file me-1"></i>
+              REGISTER
+            </a>
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <a class="nav-link p-0 py-3 fs-18 lh-sm d-flex align-items-center" aria-current="page" href="./login.html">
+              <i class="icofont-ui-user me-1"></i>
+              LOGIN
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- 為了製造navbar的固定下底線，所以需要將collapse的部分分開 -->
+  <div class="container-md">
+    <div class="collapse navbar-collapse collapse--showBelowLg" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-0 py-4">
+          <li class="nav-item me-lg-4 d-flex align-items-center mb-3">
+            <a class="nav-link p-0  fs-18 lh-sm d-flex align-items-center" aria-current="page" href="#">
+              <i class="icofont-ui-file me-1"></i>
+              REGISTER
+            </a>
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <a class="nav-link p-0 fs-18 lh-sm d-flex align-items-center" aria-current="page" href="./login.html">
+              <i class="icofont-ui-user me-1"></i>
+              LOGIN
+            </a>
+          </li>
+        </ul>
+    </div>
+  </div>
+</header>    <main class="event-9">
+      <!-- 單一活動banner區（圖+時間） -->
+      <section class="banner mt-3 mt-sm-30">
+        <div class="container-md">
+          <div class="row">
+            <div class="banner__image col-12 col-sm-10">
+              <div class="p-12 p-md-4 border border-primary">
+                <img src="/2023HexSchoolLive-Week7/assets/fig_event09-568b758c.png" alt="" class="img-fluid">
+              </div>
+            </div>
+            <div class="banner__date col-12 col-sm-2 mt-2 mt-sm-0">
+              <div class="row h-100 flex-sm-column">
+                <div class="col-4 col-sm-12 mb-0 mb-sm-3 mb-md-4">
+                  <p
+                    class="banner__date__YYYY mb-0 lh-sm border  border-primary d-flex justify-content-center align-items-center py-4 py-sm-2 py-md-3 py-lg-32 h-100">
+                    2023</p>
+                </div>
+                <div class="col-8 col-sm-12 flex-sm-grow-1">
+                  <div
+                    class="banner__date__MMDDhhmm mb-0 border  border-primary h-100 py-12 py-sm-3 py-xxl-5 px-4 px-sm-0 d-flex  justify-content-between align-items-center flex-sm-column">
+                    <div class="banner__date__MMDD text-center">
+                      <p class="banner__date__MM mb-0 lh-sm">MAY</p>
+                      <p class="banner__date__DD mb-0 lh-sm">19</p>
+                    </div>
+                    <div class="banner__date__hhmm d-flex flex-column align-items-center">
+                      <p class="banner__date__hh mb-0 lh-sm">12:00</p>
+                      <p class="mb-0 lh-sm">|</p>
+                      <p class="banner__date__mm mb-0 lh-sm">20:00</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 單一活動資訊 -->
+      <section class="event__content mt-4">
+        <div class="container-md">
+          <h2 class="mb-0 fw-bold notoSerif">返老還童-制服聯誼</h2>
+          <p class="mb-0 mt-3">穿上制服，無年齡限制，一起走上街頭、尋找青春才有的純愛心動！</p>
+          <div class="d-none d-sm-flex flex-wrap l-gapY-8 mt-sm-4">
+            <a class="btn btn-outline-primary l-btn--modifier l-btn--modifier--hover py-1 px-3 px-lg-4 me-2">聯誼</a>
+            <a class="btn btn-outline-primary l-btn--modifier l-btn--modifier--hover py-1 px-3 px-lg-4 me-2">美食</a>
+            <a class="btn btn-outline-primary l-btn--modifier l-btn--modifier--hover py-1 px-3 px-lg-4 me-2">戶外</a>
+            <a class="btn btn-outline-primary l-btn--modifier l-btn--modifier--hover py-1 px-3 px-lg-4 me-2">交通旅遊</a>
+          </div>
+          <div class="mt-4 mt-sm-5 p-3 p-md-32 notoSans border border-primary">
+            <p class="mb-3">想回到過去？試著讓故事繼續？</p>
+            <p class="mb-3">由戀愛家教「艾德溫」主辦策劃，讓各位在安排好的青春行程中擁有自然的純愛互動體驗，互相餵食餅乾、觀察對方手相，有趣的互動環節讓你/妳怦然心動！制服由主辦方提供，妝髮造型可額外加價購！
+            </p>
+            <p class="mb-0">活動中全程會有隨行攝影師，捕捉你們的純愛互動，拍攝成實境電視劇，讓你們能留下永恆的美好回憶&lt;3</p>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- 購票label -->
+      <div class="container-md mt-4 sm-md-5">
+        <div
+          class="l-label d-flex justify-content-between align-items-center py-3 px-12 py-md-4 px-md-32 border border-3 border-primary pe-none">
+          <h2 class="mb-0">TICKET</h2>
+          <p class="mb-0">購票資訊</p>
+        </div>
+      </div>
+      <!-- 購票table -->
+      <div class="container-md mt-3 mb-5 mb-sm-60">
+        <table class="table align-middle mb-0">
+          <thead class="notoSerif fw-bold">
+            <tr class="">
+              <th scope="col">活動日期</th>
+              <th scope="col">票種</th>
+              <th scope="col">票價</th>
+              <th scope="col" class="text-center">購票</th>
+            </tr>
+          </thead>
+          <tbody class="notoSans">
+            <tr class="fw-normal">
+              <td scope="row">2023/5/12</th>
+              <td>普通票</td>
+              <td>$600</td>
+              <td class="text-end"><a href="./payment.html"> <div class="btn px-12 py-2 px-md-4"><span class="d-none d-sm-inline-block">立即</span>購票</div>
+            </tr>
+            <tr class="fw-normal">
+              <td scope="row">2023/5/12</th>
+              <td>改頭換面票（含大改造）</td>
+              <td>$3600</td>
+              <td class="text-end"><a href="./payment.html"> <div class="btn px-12 py-2 px-md-4"><span class="d-none d-sm-inline-block">立即</span>購票</div>
+            </tr>
+            <tr class="fw-normal">
+              <td scope="row">2023/5/12</th>
+              <td>必勝票（含戀愛小抄）</td>
+              <td>$8000</td>
+              <td class="text-end"><a href="./payment.html"> <div class="btn px-12 py-2 px-md-4"><span class="d-none d-sm-inline-block">立即</span>購票</div>
+              </a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  <footer class="py-4 py-md-32">
+  <p class="mb-0 text-center notoSans">© 7TAO七逃. All Rights Reserved</p>
+</footer>    
+</body>
+
+</html>

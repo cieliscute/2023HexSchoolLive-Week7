@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7TAO活動訂票網</title>
+  <!-- fontawesome cdn -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<script type="module" crossorigin src="/2023HexSchoolLive-Week7/assets/main-fc2e572e.js"></script>
+<link rel="stylesheet" href="/2023HexSchoolLive-Week7/assets/main-a34af12e.css">
+
+<body>
+  <!-- header -->
+  <!-- header一定要在body最前面就引入，使用fix-top定位在畫面最上方，並且對body下一個padding-top去製造出header在一開始最上方的空間（in _header.scss） -->
+<header class="border-bottom border-3 border-primary fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light py-3">
+    <div class="container-md justify-content-start flex-nowrap">
+      <!-- brand icon+標題 -->
+      <a class="navbar-brand d-flex align-items-center py-0 me-lg-5 me-4" href="./index.html">
+        <div class="brand-img border border-2 border-primary bg-secondary  d-flex align-items-center justify-content-center me-sm-3 me-0">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAACXBIWXMAAAsTAAALEwEAmpwYAAABZWlDQ1BEaXNwbGF5IFAzAAB4nHWQvUvDUBTFT6tS0DqIDh0cMolD1NIKdnFoKxRFMFQFq1OafgltfCQpUnETVyn4H1jBWXCwiFRwcXAQRAcR3Zw6KbhoeN6XVNoi3sfl/Ticc7lcwBtQGSv2AijplpFMxKS11Lrke4OHnlOqZrKooiwK/v276/PR9d5PiFlNu3YQ2U9cl84ul3aeAlN//V3Vn8maGv3f1EGNGRbgkYmVbYsJ3iUeMWgp4qrgvMvHgtMunzuelWSc+JZY0gpqhrhJLKc79HwHl4plrbWD2N6f1VeXxRzqUcxhEyYYilBRgQQF4X/8044/ji1yV2BQLo8CLMpESRETssTz0KFhEjJxCEHqkLhz634PrfvJbW3vFZhtcM4v2tpCAzidoZPV29p4BBgaAG7qTDVUR+qh9uZywPsJMJgChu8os2HmwiF3e38M6Hvh/GMM8B0CdpXzryPO7RqFn4Er/QfBIQM2AAAD60lEQVR4Ae2c/W3bMBDFzx8B8keAaoNyg7gbuJMkm7QbpBtlhKQTRJ4gSoAABvLh3nNJlaYpmbJl90nRDxAk25RkPt4dyaNskQF6MrtRMBYSptPp7OzszAgJNMKsViuju5mQMBUSRqORUXFoXIlGGBXlUneFkEAjjJLBaoQEJosxMrDNZDJZYRMSWHol4w7Oz8+NEEAhjI5hjDt+f3+n6JloxjGOj48PIwRQCOMH3vF4PFiMI+imB2FisIx+6VxJj78KASwW80XIYBGmdB+WaQFdjJE+Bt9MkT0IYkzja9j7tipoq8IURYFR7J1m4k6ScIIgOu758fz8fCtEKYsoKsxPTAZ1fyOJregmkHZ7TDlHrz/Xsg8451QNcSiZ+8LYp0wKA2FqZ9jWSm5cWRXol3QF25plRWHudeVThYHInuhr4YVoZSEJtKRfWetaMbKIMFuVhbvAzYJyRjpIFrQuLOcu4lomFCYso+9dhWUQy6TDmLCVI3GnVpgKUboTV6qwLrCqEadSmNi5GA5IX9AKXdeIExXGBtota5OOxpVKYuIg5uhHMauYh/Gpl6I4Yj1L4tZfUTxMxBoqNxtTjJyYkRwZjFSXy+XGuOTt7Q3r1Lcp56u7fVOBNuZBGn8KIEckSRgEQixr2Ax+hhkwktZets0tyK8F0JzKSZ910Xvn9r65fQuiFfp64T53n6kF5tpQ+a5rroVBq768vBit+EwvcIlK6oaJGdV6cpt4YkHA3+71xcXFPaxxnXaAVXp5kCf5KwhOkL6CulnLhnU5Sy89NNmVEBdwjKSSsyLrSr7bmGB/Cgq7rSum3wnHuX29UC9AA6/LqPvniFfJrnRkMhV2I97YeJU0gtVKfUdc8N/TipVi9AZYH7rgJmMYloX+oxHJp6Ruj13J0jWmQhSMaOehEBAB04WIQFfSJypEQW7XSPXsusq6+iNOLKbIv0dX6/IxUXF64VZ+4tqr2LVXZFcGL2ptnQ7ISILvEAXsTG2iTCTmdC8RDmxcCWNKzAWSkuGgQYKdE8y9JtvLHKaqfESYStyCnifOXLpCZEGs1uSbCGPx4043XMpLYD+ktuZke70ohcy5VieWUhAk7RdNbkU9J3S7Jsxslo/aavZKUB0ojH/v1mj7twT7znjL87ws3N7XaAOWx1npUggsj5ot3IEmmp6EAMZn8JIeHDo2LK6Ue8cLIWCIMRVQCIOEtTs+oFdqFZYYUwrjFs/+NxTCYFlDyKAQ5vX1tbSYcKnk09NwAnl0mH5enDMtCTP9IL1g6rZpRr72iQOK6QBg+tOLcjGeAaYYc6/dtrAwERK0m4Y4Sx0F5zKwwUkfTxvYkz+/TyEL+6WthwAAAABJRU5ErkJggg==" alt="7TAO LOGO" class="d-inline-block align-top img-fluid">
+        </div>
+        <div class="align-items-center d-none d-sm-flex">
+          <h1 class="fs-2 m-0">7TAO</h1>
+          <span class="ms-1 fs-6 fw-bold">活動訂票網</span>
+        </div>
+      </a>
+      <!-- form探索活動 -->
+      <form class="d-flex align-self-stretch flex-shrink-1 me-4">
+        <input class="form-control border border-2 border-primary border-end-0 flex-grow-1 flex-shrink-1" type="search" placeholder="探索活動"
+          aria-label="Search">
+        <a class="btn border border-2  border-primary  flex-shrink-0 justify-content-center align-items-center d-flex"
+          type="submit">
+          <i class="icofont-search-1 fs-6"></i>
+        </a>
+      </form>
+
+
+      <!-- 登入/註冊 ＋漢堡條 -->
+      <button class="navbar-toggler ms-auto align-self-stretch px-12 py-1 border-2 border-primary rounded rounded-2"
+        type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon h-100"></span>
+      </button>
+      <!-- 因為collapse的部分分開了，所以需要多複製一份按鈕。把ID給拿掉就不會連動了-->
+      <div class="collapse navbar-collapse flex-grow-0 ms-auto collapse--showAboveLg">
+        <ul class="navbar-nav mb-0">
+          <li class="nav-item me-4 d-flex align-items-center">
+            <a class="nav-link p-0 py-3 fs-18 lh-sm d-flex align-items-center" aria-current="page" href="#">
+              <i class="icofont-ui-file me-1"></i>
+              REGISTER
+            </a>
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <a class="nav-link p-0 py-3 fs-18 lh-sm d-flex align-items-center" aria-current="page" href="./login.html">
+              <i class="icofont-ui-user me-1"></i>
+              LOGIN
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- 為了製造navbar的固定下底線，所以需要將collapse的部分分開 -->
+  <div class="container-md">
+    <div class="collapse navbar-collapse collapse--showBelowLg" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-0 py-4">
+          <li class="nav-item me-lg-4 d-flex align-items-center mb-3">
+            <a class="nav-link p-0  fs-18 lh-sm d-flex align-items-center" aria-current="page" href="#">
+              <i class="icofont-ui-file me-1"></i>
+              REGISTER
+            </a>
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <a class="nav-link p-0 fs-18 lh-sm d-flex align-items-center" aria-current="page" href="./login.html">
+              <i class="icofont-ui-user me-1"></i>
+              LOGIN
+            </a>
+          </li>
+        </ul>
+    </div>
+  </div>
+</header>    <main class="login pt-4 pt-sm-60">
+      <div class="container-md">
+        <div class="row">
+          <div class="col-12 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
+            <div class="d-flex  flex-column align-items-center m-auto mb-3">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAACXBIWXMAAAsTAAALEwEAmpwYAAABZWlDQ1BEaXNwbGF5IFAzAAB4nHWQvUvDUBTFT6tS0DqIDh0cMolD1NIKdnFoKxRFMFQFq1OafgltfCQpUnETVyn4H1jBWXCwiFRwcXAQRAcR3Zw6KbhoeN6XVNoi3sfl/Ticc7lcwBtQGSv2AijplpFMxKS11Lrke4OHnlOqZrKooiwK/v276/PR9d5PiFlNu3YQ2U9cl84ul3aeAlN//V3Vn8maGv3f1EGNGRbgkYmVbYsJ3iUeMWgp4qrgvMvHgtMunzuelWSc+JZY0gpqhrhJLKc79HwHl4plrbWD2N6f1VeXxRzqUcxhEyYYilBRgQQF4X/8044/ji1yV2BQLo8CLMpESRETssTz0KFhEjJxCEHqkLhz634PrfvJbW3vFZhtcM4v2tpCAzidoZPV29p4BBgaAG7qTDVUR+qh9uZywPsJMJgChu8os2HmwiF3e38M6Hvh/GMM8B0CdpXzryPO7RqFn4Er/QfBIQM2AAAD60lEQVR4Ae2c/W3bMBDFzx8B8keAaoNyg7gbuJMkm7QbpBtlhKQTRJ4gSoAABvLh3nNJlaYpmbJl90nRDxAk25RkPt4dyaNskQF6MrtRMBYSptPp7OzszAgJNMKsViuju5mQMBUSRqORUXFoXIlGGBXlUneFkEAjjJLBaoQEJosxMrDNZDJZYRMSWHol4w7Oz8+NEEAhjI5hjDt+f3+n6JloxjGOj48PIwRQCOMH3vF4PFiMI+imB2FisIx+6VxJj78KASwW80XIYBGmdB+WaQFdjJE+Bt9MkT0IYkzja9j7tipoq8IURYFR7J1m4k6ScIIgOu758fz8fCtEKYsoKsxPTAZ1fyOJregmkHZ7TDlHrz/Xsg8451QNcSiZ+8LYp0wKA2FqZ9jWSm5cWRXol3QF25plRWHudeVThYHInuhr4YVoZSEJtKRfWetaMbKIMFuVhbvAzYJyRjpIFrQuLOcu4lomFCYso+9dhWUQy6TDmLCVI3GnVpgKUboTV6qwLrCqEadSmNi5GA5IX9AKXdeIExXGBtota5OOxpVKYuIg5uhHMauYh/Gpl6I4Yj1L4tZfUTxMxBoqNxtTjJyYkRwZjFSXy+XGuOTt7Q3r1Lcp56u7fVOBNuZBGn8KIEckSRgEQixr2Ax+hhkwktZets0tyK8F0JzKSZ910Xvn9r65fQuiFfp64T53n6kF5tpQ+a5rroVBq768vBit+EwvcIlK6oaJGdV6cpt4YkHA3+71xcXFPaxxnXaAVXp5kCf5KwhOkL6CulnLhnU5Sy89NNmVEBdwjKSSsyLrSr7bmGB/Cgq7rSum3wnHuX29UC9AA6/LqPvniFfJrnRkMhV2I97YeJU0gtVKfUdc8N/TipVi9AZYH7rgJmMYloX+oxHJp6Ruj13J0jWmQhSMaOehEBAB04WIQFfSJypEQW7XSPXsusq6+iNOLKbIv0dX6/IxUXF64VZ+4tqr2LVXZFcGL2ptnQ7ISILvEAXsTG2iTCTmdC8RDmxcCWNKzAWSkuGgQYKdE8y9JtvLHKaqfESYStyCnifOXLpCZEGs1uSbCGPx4043XMpLYD+ktuZke70ohcy5VieWUhAk7RdNbkU9J3S7Jsxslo/aavZKUB0ojH/v1mj7twT7znjL87ws3N7XaAOWx1npUggsj5ot3IEmmp6EAMZn8JIeHDo2LK6Ue8cLIWCIMRVQCIOEtTs+oFdqFZYYUwrjFs/+NxTCYFlDyKAQ5vX1tbSYcKnk09NwAnl0mH5enDMtCTP9IL1g6rZpRr72iQOK6QBg+tOLcjGeAaYYc6/dtrAwERK0m4Y4Sx0F5zKwwUkfTxvYkz+/TyEL+6WthwAAAABJRU5ErkJggg==" alt="" width="32" height="32">
+              <h3 class="mb-0 fs-4 fw-bold notoSerif mt-3">會員登入</h3>
+            </div>
+
+
+            <form>
+              <div class="mb-3">
+                <label for="user-ID" class="form-label">帳號</label>
+                <input type="text" placeholder="請輸入帳號" class="form-control" id="user-ID" aria-describedby="使用者帳號輸入區">
+              </div>
+              <div class="mb-4 mb-sm-32">
+                <label for="user-PWD" class="form-label">帳號</label>
+                <input type="password" placeholder="請輸入密碼" class="form-control" id="user-PWD"
+                  aria-describedby="使用者帳號輸入區">
+              </div>
+              <button type="submit" class="btn btn-primary w-100">
+                登入
+                <i class="fa-solid fa-angles-right"></i>
+              </button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+    <footer class="py-4 py-md-32">
+  <p class="mb-0 text-center notoSans">© 7TAO七逃. All Rights Reserved</p>
+</footer>    
+</body>
+
+</html>
