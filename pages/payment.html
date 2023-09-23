@@ -17,9 +17,8 @@
   <%- include('./layout/header'); -%>
     <main class="payment mt-4 mt-sm-60 mb-5 mb-sm-60 position-relative">
       <div class="container-md">
-        <div class="row">
-          <!-- AJAX替換row內的內容 -->
-          <div class="col-12 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
+        <div class="row justify-content-center">
+          <div class="col-12 col-sm-8 col-lg-6">
             <!-- progress上層steps容器  橫向排列用並且加上一個justify-content-between去均等分父層空間 -->
             <div class="progress-container d-flex align-items-center justify-content-between px-3 position-relative">
               <!-- step1 -->
@@ -28,7 +27,7 @@
                 <div class="box d-flex align-items-center justify-content-center position-relative">
                   <span class="box__stepNum">1</span>
                   <i class="icofont-verification-check"></i>
-                  <!-- 用絕對定位取消高度，並且使用left:-50%加上文字不斷行去讓文字可以在方塊下方並且垂直置中 -->
+                  <!-- 用絕對定位取消高度 -->
                   <p class="box__text mb-0 mt-1 mt-sm-2 position-absolute top-100">訂單確認</p>
                 </div>
               </div>
@@ -38,7 +37,7 @@
                 <div class="box d-flex align-items-center justify-content-center position-relative">
                   <span class="box__stepNum">2</span>
                   <i class="icofont-verification-check"></i>
-                  <!-- 用絕對定位取消高度，並且使用left:-50%加上文字不斷行去讓文字可以在方塊下方並且垂直置中 -->
+                  <!-- 用絕對定位取消高度 -->
                   <p class="box__text mb-0 mt-1 mt-sm-2 position-absolute top-100">結帳付款</p>
                 </div>
               </div>
@@ -48,11 +47,10 @@
                 <div class="box d-flex align-items-center justify-content-center position-relative">
                   <span class="box__stepNum">3</span>
                   <i class="icofont-verification-check"></i>
-                  <!-- 用絕對定位取消高度，並且使用left:-50%加上文字不斷行去讓文字可以在方塊下方並且垂直置中 -->
+                  <!-- 用絕對定位取消高度 -->
                   <p class="box__text mb-0 mt-1 mt-sm-2 position-absolute top-100">訂購結果</p>
                 </div>
               </div>
-
             </div>
             <!-- 主要內容 -->
             <div class="content-container">
@@ -208,7 +206,17 @@
         </div>
     </main>
     <%- include('./layout/footer'); -%>
-      <script type="module" src="../main.js"></script>
+    <script type="module" src="../main.js"></script>
+    <script>
+      const app={
+        data:{
+
+        },
+        render0(){
+
+        },
+      }
+    </script>
 </body>
 
 </html>

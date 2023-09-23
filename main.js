@@ -1,7 +1,11 @@
 import './assets/scss/all.scss';
 import 'bootstrap/dist/js/bootstrap.min.js';
+import AOS from 'aos';
+import 'aos/dist/aos.css'
+AOS.init({
+  once: true
+});
 
-console.log("Hello world!");
 
 // 讓index__recent__cards 卡片片尾的狀態區(開賣中...檢視活動etc)可以有hover跳動效果
 let stateIcons = document.querySelectorAll('.card-footer__state');
